@@ -1,0 +1,29 @@
+node{
+
+def mavenHome = tool name: "maven3.9.0"
+
+stage('CheckoutCode'){
+git branch: 'master', credentialsId: '407b97d3-f6ca-403b-8a98-096c1984e60c', url: 'https://github.com/Ajay9991/maven-web-application.git'
+}
+
+stage('Build'){
+sh "${mavenHome}/bin/mvn clean package"
+}
+/*
+stage('Build'){
+sh "${mavenHome}/bin/mvn clean sonar:sonar"
+}
+
+stage('Uploadartifacttonexus'){
+sh "${mavenHome}/bin/mvn clean deploy"
+}
+
+stage('DeployappIntoTomcatServer'){
+sshagent(['6edfc632-5115-4610-93c9-5f024bf50617']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@18.225.32.164:/opt/apache-tomcat-9.0.73/webapps/"
+}
+
+}
+*/
+}
+

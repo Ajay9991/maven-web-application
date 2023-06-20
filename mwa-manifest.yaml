@@ -21,7 +21,7 @@ spec:
         spec:
           containers:
              - name: mwa-container
-               image: ajjupuppy/maven-web-application:22
+               image: ajjupuppy/maven-web-application:VERSION
                ports:
                 - containerPort: 8080
 ---

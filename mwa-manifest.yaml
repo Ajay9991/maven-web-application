@@ -12,14 +12,14 @@ spec:
          maxUnavailable: 1
          maxSurge: 2
   minReadySeconds: 10
-   selector:
+  selector:
         matchLabels:
              app: mwa-pods
-   template:
+  template:
       metadata:
         labels:
           app: mwa-pods
-   spec:
+  spec:
      containers:
         - name: mwa-container
           image: ajjupuppy/maven-web-application:6
@@ -37,4 +37,4 @@ spec:
        - port: 80
          targetPort: 8080
      selector:
-         app: mwa-pods
+         ap: mwa-pods

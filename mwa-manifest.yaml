@@ -11,7 +11,7 @@ spec:
    rollingUpdate:
          maxUnavailable: 1
          maxSurge: 2
-   minReadySeconds: 10
+  minReadySeconds: 10
    selector:
         matchLabels:
              app: mwa-pods

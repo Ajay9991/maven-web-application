@@ -1,40 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-     name: mwa-dep
-     namespace: test-ns
+  name:
+  namespace: 
 spec:
-     replicas: 3
-     revisionHistoryLimit: 5
-     strategy: 
-       type: RollingUpdate
-       rollingUpdate:
-            maxUnavailable: 1
-            maxSurge: 2
-     minReadySeconds: 10
-     selector:
-          matchLabels:
-               app: mwa-pods
-     template:
-        metadata:
-          labels:
-            app: mwa-pods
-        spec:
-          containers:
-             - name: mwa-container
-               image: ajjupuppy/maven-web-application:VERSION
-               ports:
-                - containerPort: 8080
+  replicas: 3
+  revisionHistoryLimit: 5
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+         maxUnavailable: 1
+         maxSurge: 2
+   minReadySeconds: 10
+   selector:
+        matchLabels:
+             app: mwa-pods
+   template:
+      metadata:
+        labels:
+          app: mwa-pods
+   spec:
+     containers:
+        - name: mwa-container
+          image: ajjupuppy/maven-web-application:6
+          ports:
+           - containerPort: 8080
 ---
-apiVersion: v1 
+apiVersion: v1
 kind: Service
 metadata:
-     name: mwa-svc
+     name: mwa-spec
      namespace: test-ns
-spec:
+spec: 
      type: NodePort
-     ports:
+     ports: 
        - port: 80
          targetPort: 8080
      selector:
-        app: mwa-pods
+         ap: mwa-pods
